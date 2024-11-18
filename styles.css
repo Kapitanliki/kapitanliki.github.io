@@ -1,0 +1,31 @@
+.lang-content {
+    display: none;
+}
+.lang-content.active {
+    display: block;
+}
+.lang-btn.active {
+    background-color: #1e40af;
+}
+@media (max-width: 640px) {
+    .lang-selector {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .lang-btn {
+        width: 100%;
+    }
+    .content-container {
+        padding: 1rem;
+    }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+    .content-container {
+        padding: 1.5rem;
+    }
+}
+@media (min-width: 1025px) {
+    .content-container {
+        padding: 2rem;
+    }
+}
