@@ -7,6 +7,7 @@
             max-width: 800px;
             margin: 0 auto;
             background: #0a0a15;
+            overflow: hidden;
         }
         .banner-svg {
             width: 100%;
@@ -19,16 +20,43 @@
     <div class="banner-container">
         <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
-                    <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
+                <!-- 背景動畫 -->
+                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" 
+                         width="900" height="400" x="-50" y="-50">
+                    <image href="cosmos1.jpg" 
+                           width="900" height="400" 
+                           x="-50" y="-50"
+                           preserveAspectRatio="xMidYMid slice">
+                        <!-- 緩慢縮放 -->
+                        <animateTransform
+                            attributeName="transform"
+                            type="scale"
+                            values="1; 1.05; 1"
+                            dur="20s"
+                            repeatCount="indefinite"
+                            additive="sum"/>
+                        
+                        <!-- 微微旋轉 -->
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            values="0 400 150; 1 400 150; 0 400 150"
+                            dur="25s"
+                            repeatCount="indefinite"
+                            additive="sum"/>
+                            
+                        <!-- 輕微平移 -->
+                        <animateTransform
+                            attributeName="transform"
+                            type="translate"
+                            values="0,0; 10,-5; 0,0"
+                            dur="15s"
+                            repeatCount="indefinite"
+                            additive="sum"/>
+                    </image>
                 </pattern>
 
-                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#0a0a15;stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:#0c1525;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#0a0a15;stop-opacity:1" />
-                </linearGradient>
-                
+                <!-- 能量流動漸層 -->
                 <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
                         <animate attributeName="stop-color" 
@@ -58,88 +86,11 @@
                                 repeatCount="indefinite"/>
                     </stop>
                 </linearGradient>
-
-                <filter id="starGlow">
-                    <feGaussianBlur stdDeviation="1.5" />
-                </filter>
             </defs>
 
             <!-- 背景圖和遮罩 -->
             <rect width="800" height="300" fill="url(#cosmos-bg)" />
-            <rect width="800" height="300" fill="#0a0a15" opacity="0.4"/>
-
-            <!-- 背景星點層 -->
-            <g filter="url(#starGlow)" opacity="0.8">
-                <!-- 小星點 -->
-                <g fill="#FFF">
-                    <circle cx="50" cy="30" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="150" cy="60" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="250" cy="40" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="350" cy="70" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="450" cy="25" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="550" cy="55" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.3s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="650" cy="35" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.9s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="750" cy="65" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.1s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-
-                <!-- 中等星點 -->
-                <g fill="#FFB800">
-                    <circle cx="100" cy="100" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="300" cy="150" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="500" cy="120" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="700" cy="180" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-
-                <!-- 大星點 -->
-                <g fill="#FFF">
-                    <circle cx="200" cy="200" r="2.5">
-                        <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="400" cy="250" r="2.5">
-                        <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="600" cy="220" r="2.5">
-                        <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-
-                <!-- 藍色星點 -->
-                <g fill="#00CCFF">
-                    <circle cx="150" cy="180" r="1.8">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="350" cy="220" r="1.8">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="550" cy="190" r="1.8">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.9s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-            </g>
+            <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
 
             <!-- 能量波浪 -->
             <path d="M 0,150 C 200,100 400,200 800,150" 
