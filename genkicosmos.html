@@ -20,41 +20,22 @@
     <div class="banner-container">
         <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <!-- 背景動畫 -->
-                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" 
-                         width="900" height="400" x="-50" y="-50">
-                    <image href="cosmos1.jpg" 
-                           width="900" height="400" 
-                           x="-50" y="-50"
-                           preserveAspectRatio="xMidYMid slice">
-                        <!-- 緩慢縮放 -->
-                        <animateTransform
-                            attributeName="transform"
-                            type="scale"
-                            values="1; 1.05; 1"
-                            dur="20s"
-                            repeatCount="indefinite"
-                            additive="sum"/>
-                        
-                        <!-- 微微旋轉 -->
-                        <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            values="0 400 150; 1 400 150; 0 400 150"
-                            dur="25s"
-                            repeatCount="indefinite"
-                            additive="sum"/>
-                            
-                        <!-- 輕微平移 -->
-                        <animateTransform
-                            attributeName="transform"
-                            type="translate"
-                            values="0,0; 10,-5; 0,0"
-                            dur="15s"
-                            repeatCount="indefinite"
-                            additive="sum"/>
-                    </image>
+                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
+                    <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
                 </pattern>
+
+                <!-- 波浪漸層 -->
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.1"/>
+                    <stop offset="50%" style="stop-color:#FF8800;stop-opacity:0.3"/>
+                    <stop offset="100%" style="stop-color:#FF8800;stop-opacity:0.1"/>
+                </linearGradient>
+
+                <linearGradient id="waveGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00CCFF;stop-opacity:0.1"/>
+                    <stop offset="50%" style="stop-color:#00CCFF;stop-opacity:0.2"/>
+                    <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.1"/>
+                </linearGradient>
 
                 <!-- 能量流動漸層 -->
                 <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -92,7 +73,53 @@
             <rect width="800" height="300" fill="url(#cosmos-bg)" />
             <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
 
-            <!-- 能量波浪 -->
+            <!-- 人浪效果 - 從左到右 -->
+            <g>
+                <!-- 第一波 -->
+                <path fill="url(#waveGrad1)" d="">
+                    <animate attributeName="d"
+                             values="
+                             M -800,180 Q -600,150 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z;
+                             M -800,180 Q -600,210 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z;
+                             M -800,180 Q -600,150 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z"
+                             dur="8s"
+                             begin="0s"
+                             repeatCount="indefinite"/>
+                </path>
+
+                <!-- 第二波 - 延遲開始 -->
+                <path fill="url(#waveGrad1)" d="">
+                    <animate attributeName="d"
+                             values="
+                             M -800,160 Q -600,130 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z;
+                             M -800,160 Q -600,190 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z;
+                             M -800,160 Q -600,130 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z"
+                             dur="8s"
+                             begin="2s"
+                             repeatCount="indefinite"/>
+                </path>
+
+                <!-- 從右到左的波 -->
+                <path fill="url(#waveGrad2)" d="">
+                    <animate attributeName="d"
+                             values="
+                             M 1600,200 Q 1400,170 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z;
+                             M 1600,200 Q 1400,230 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z;
+                             M 1600,200 Q 1400,170 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z"
+                             dur="10s"
+                             begin="1s"
+                             repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="translate"
+                        values="-800,0; 0,0; -800,0"
+                        dur="10s"
+                        begin="1s"
+                        repeatCount="indefinite"/>
+                </path>
+            </g>
+
+            <!-- 主要能量線 -->
             <path d="M 0,150 C 200,100 400,200 800,150" 
                   stroke="url(#energyFlow)" 
                   stroke-width="3" 
