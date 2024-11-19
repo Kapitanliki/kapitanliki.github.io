@@ -24,20 +24,6 @@
                     <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
                 </pattern>
 
-                <!-- 波浪漸層 -->
-                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.1"/>
-                    <stop offset="50%" style="stop-color:#FF8800;stop-opacity:0.3"/>
-                    <stop offset="100%" style="stop-color:#FF8800;stop-opacity:0.1"/>
-                </linearGradient>
-
-                <linearGradient id="waveGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
-                    <stop offset="0%" style="stop-color:#00CCFF;stop-opacity:0.1"/>
-                    <stop offset="50%" style="stop-color:#00CCFF;stop-opacity:0.2"/>
-                    <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.1"/>
-                </linearGradient>
-
-                <!-- 能量流動漸層 -->
                 <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
                         <animate attributeName="stop-color" 
@@ -67,59 +53,78 @@
                                 repeatCount="indefinite"/>
                     </stop>
                 </linearGradient>
+
+                <filter id="starGlow">
+                    <feGaussianBlur stdDeviation="1.5" />
+                </filter>
             </defs>
 
             <!-- 背景圖和遮罩 -->
             <rect width="800" height="300" fill="url(#cosmos-bg)" />
             <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
 
-            <!-- 人浪效果 - 從左到右 -->
-            <g>
-                <!-- 第一波 -->
-                <path fill="url(#waveGrad1)" d="">
-                    <animate attributeName="d"
-                             values="
-                             M -800,180 Q -600,150 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z;
-                             M -800,180 Q -600,210 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z;
-                             M -800,180 Q -600,150 -400,180 T 0,180 T 400,180 T 800,180 L 800,300 L -800,300 Z"
-                             dur="8s"
-                             begin="0s"
-                             repeatCount="indefinite"/>
-                </path>
+            <!-- 星點群 -->
+            <g filter="url(#starGlow)" opacity="0.8">
+                <!-- 小星點 - 主要在右上方 -->
+                <g fill="#FFF">
+                    <circle cx="450" cy="40" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="520" cy="60" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="580" cy="35" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="650" cy="55" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="720" cy="45" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
 
-                <!-- 第二波 - 延遲開始 -->
-                <path fill="url(#waveGrad1)" d="">
-                    <animate attributeName="d"
-                             values="
-                             M -800,160 Q -600,130 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z;
-                             M -800,160 Q -600,190 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z;
-                             M -800,160 Q -600,130 -400,160 T 0,160 T 400,160 T 800,160 L 800,300 L -800,300 Z"
-                             dur="8s"
-                             begin="2s"
-                             repeatCount="indefinite"/>
-                </path>
+                <!-- 中等星點 - 右上區域 -->
+                <g fill="#FFB800">
+                    <circle cx="480" cy="80" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="550" cy="50" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="620" cy="70" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="690" cy="40" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
 
-                <!-- 從右到左的波 -->
-                <path fill="url(#waveGrad2)" d="">
-                    <animate attributeName="d"
-                             values="
-                             M 1600,200 Q 1400,170 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z;
-                             M 1600,200 Q 1400,230 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z;
-                             M 1600,200 Q 1400,170 1200,200 T 800,200 T 400,200 T 0,200 L 0,300 L 1600,300 Z"
-                             dur="10s"
-                             begin="1s"
-                             repeatCount="indefinite"/>
-                    <animateTransform
-                        attributeName="transform"
-                        type="translate"
-                        values="-800,0; 0,0; -800,0"
-                        dur="10s"
-                        begin="1s"
-                        repeatCount="indefinite"/>
-                </path>
+                <!-- 大星點 - 右上方最亮的部分 -->
+                <g fill="#FFF">
+                    <circle cx="500" cy="45" r="2.5">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="600" cy="30" r="2.5">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="700" cy="25" r="2.5">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+
+                <!-- 藍色星點 - 點綴在右上角 -->
+                <g fill="#00CCFF">
+                    <circle cx="530" cy="65" r="1.8">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="640" cy="45" r="1.8">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
             </g>
 
-            <!-- 主要能量線 -->
+            <!-- 能量波浪 -->
             <path d="M 0,150 C 200,100 400,200 800,150" 
                   stroke="url(#energyFlow)" 
                   stroke-width="3" 
