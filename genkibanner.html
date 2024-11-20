@@ -16,6 +16,37 @@
                     <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
                 </pattern>
                 
+                <!-- 漸層定義必須在主文件中 -->
+                <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
+                        <animate attributeName="stop-color" 
+                                values="#FF8800;#FF6600;#FF8800" 
+                                dur="3s" 
+                                repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="100%" style="stop-color:#FF4400;stop-opacity:0.8">
+                        <animate attributeName="stop-color" 
+                                values="#FF4400;#FF6600;#FF4400" 
+                                dur="3s" 
+                                repeatCount="indefinite"/>
+                    </stop>
+                </linearGradient>
+
+                <linearGradient id="blueEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#0066FF;stop-opacity:0.6">
+                        <animate attributeName="stop-color" 
+                                values="#0066FF;#00CCFF;#0066FF" 
+                                dur="4s" 
+                                repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.6">
+                        <animate attributeName="stop-color" 
+                                values="#00CCFF;#0066FF;#00CCFF" 
+                                dur="4s" 
+                                repeatCount="indefinite"/>
+                    </stop>
+                </linearGradient>
+
                 <!-- 星雲遮罩漸層 -->
                 <radialGradient id="nebulaGradient1">
                     <stop offset="0%" stop-color="white" stop-opacity="0.3" />
@@ -27,35 +58,93 @@
                     <stop offset="100%" stop-color="white" stop-opacity="0" />
                 </radialGradient>
 
-                <!-- 能量流動漸層 -->
-                <use href="genki-waves.svg#energyGradients"/>
-                
                 <!-- 星點效果濾鏡 -->
                 <filter id="starGlow">
                     <feGaussianBlur stdDeviation="1.5" />
                 </filter>
-                
-                <!-- 星雲遮罩 -->
-                <mask id="nebulaMask">
-                    <use href="genki-nebula.svg#nebulaMask"/>
-                </mask>
             </defs>
 
             <!-- 背景層 -->
             <g class="background-layer">
                 <rect width="800" height="300" fill="url(#cosmos-bg)" />
                 <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
-                <rect class="nebula-effect" width="800" height="300" 
-                    fill="#436685" 
-                    opacity="0.2" 
-                    mask="url(#nebulaMask)"/>
+                
+                <!-- 星雲效果 - 直接嵌入而不是使用外部引用 -->
+                <g class="nebula-effect" mask="url(#nebulaMask)">
+                    <rect width="800" height="300" fill="#436685" opacity="0.2"/>
+                    <!-- 星雲遮罩 -->
+                    <mask id="nebulaMask">
+                        <circle cx="250" cy="150" r="120" fill="url(#nebulaGradient1)">
+                            <animate attributeName="cx" 
+                                     values="250;270;250" 
+                                     dur="15s" 
+                                     repeatCount="indefinite" />
+                            <animate attributeName="cy" 
+                                     values="150;170;150" 
+                                     dur="20s" 
+                                     repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="550" cy="150" r="150" fill="url(#nebulaGradient2)">
+                            <animate attributeName="cx" 
+                                     values="550;530;550" 
+                                     dur="18s" 
+                                     repeatCount="indefinite" />
+                            <animate attributeName="cy" 
+                                     values="150;130;150" 
+                                     dur="22s" 
+                                     repeatCount="indefinite" />
+                        </circle>
+                    </mask>
+                </g>
             </g>
 
             <!-- 星點群 -->
-            <use href="genki-stars.svg#starGroup"/>
+            <g filter="url(#starGlow)" opacity="0.8">
+                <!-- 小星點 - 右上方 -->
+                <g fill="#FFF">
+                    <circle cx="450" cy="40" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="520" cy="60" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="580" cy="35" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="650" cy="55" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="720" cy="45" r="1.2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+                <!-- 其他星點... -->
+            </g>
 
             <!-- 能量波浪 -->
-            <use href="genki-waves.svg#energyWaves"/>
+            <path d="M 0,150 C 200,100 400,200 800,150" 
+                  stroke="url(#energyFlow)" 
+                  stroke-width="3" 
+                  fill="none">
+                <animate attributeName="d" 
+                         values="M 0,150 C 200,100 400,200 800,150;
+                                 M 0,150 C 200,200 400,100 800,150;
+                                 M 0,150 C 200,100 400,200 800,150" 
+                         dur="10s" 
+                         repeatCount="indefinite"/>
+            </path>
+
+            <path d="M 0,150 C 200,200 400,100 800,150" 
+                  stroke="url(#blueEnergy)" 
+                  stroke-width="2" 
+                  fill="none">
+                <animate attributeName="d" 
+                         values="M 0,150 C 200,200 400,100 800,150;
+                                 M 0,150 C 200,100 400,200 800,150;
+                                 M 0,150 C 200,200 400,100 800,150" 
+                         dur="8s" 
+                         repeatCount="indefinite"/>
+            </path>
 
             <!-- Logo區域 -->
             <g class="logo-area" transform="translate(200,150) scale(0.5)"></g>
