@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <g id="nebulaMask">
+        <!-- 第一個星雲圓形 -->
+        <circle cx="250" cy="150" r="120" fill="url(#nebulaGradient1)">
+            <animate attributeName="cx" 
+                     values="250;270;250" 
+                     dur="15s" 
+                     repeatCount="indefinite" />
+            <animate attributeName="cy" 
+                     values="150;170;150" 
+                     dur="20s" 
+                     repeatCount="indefinite" />
+        </circle>
+        <!-- 第二個星雲圓形 -->
+        <circle cx="550" cy="150" r="150" fill="url(#nebulaGradient2)">
+            <animate attributeName="cx" 
+                     values="550;530;550" 
+                     dur="18s" 
+                     repeatCount="indefinite" />
+            <animate attributeName="cy" 
+                     values="150;130;150" 
+                     dur="22s" 
+                     repeatCount="indefinite" />
+        </circle>
+    </g>
+</svg>
