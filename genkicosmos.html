@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>GENKI Banner</title>
+    <title>GENKI Website</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0a0a15;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .content-overlay {
+            background: rgba(10,10,21,0.3);
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .banner-container {
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            background: #0a0a15;
+            background: transparent;
             overflow: hidden;
         }
 
@@ -37,177 +64,184 @@
     </style>
 </head>
 <body>
-    <div class="banner-container">
-        <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- 背景圖案 -->
-                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
-                    <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
-                </pattern>
-                
-                <!-- 能量波浪漸層 -->
-                <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
-                        <animate attributeName="stop-color" 
-                                values="#FF8800;#FF6600;#FF8800" 
-                                dur="3s" 
-                                repeatCount="indefinite"/>
-                    </stop>
-                    <stop offset="100%" style="stop-color:#FF4400;stop-opacity:0.8">
-                        <animate attributeName="stop-color" 
-                                values="#FF4400;#FF6600;#FF4400" 
-                                dur="3s" 
-                                repeatCount="indefinite"/>
-                    </stop>
-                </linearGradient>
+    <div class="content-overlay">
+        <div class="content-container">
+            <div class="banner-container">
+                <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- 背景圖案 -->
+                        <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
+                            <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
+                        </pattern>
+                        
+                        <!-- 能量波浪漸層 -->
+                        <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
+                                <animate attributeName="stop-color" 
+                                        values="#FF8800;#FF6600;#FF8800" 
+                                        dur="3s" 
+                                        repeatCount="indefinite"/>
+                            </stop>
+                            <stop offset="100%" style="stop-color:#FF4400;stop-opacity:0.8">
+                                <animate attributeName="stop-color" 
+                                        values="#FF4400;#FF6600;#FF4400" 
+                                        dur="3s" 
+                                        repeatCount="indefinite"/>
+                            </stop>
+                        </linearGradient>
 
-                <linearGradient id="blueEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#0066FF;stop-opacity:0.6">
-                        <animate attributeName="stop-color" 
-                                values="#0066FF;#00CCFF;#0066FF" 
-                                dur="4s" 
-                                repeatCount="indefinite"/>
-                    </stop>
-                    <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.6">
-                        <animate attributeName="stop-color" 
-                                values="#00CCFF;#0066FF;#00CCFF" 
-                                dur="4s" 
-                                repeatCount="indefinite"/>
-                    </stop>
-                </linearGradient>
+                        <linearGradient id="blueEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#0066FF;stop-opacity:0.6">
+                                <animate attributeName="stop-color" 
+                                        values="#0066FF;#00CCFF;#0066FF" 
+                                        dur="4s" 
+                                        repeatCount="indefinite"/>
+                            </stop>
+                            <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.6">
+                                <animate attributeName="stop-color" 
+                                        values="#00CCFF;#0066FF;#00CCFF" 
+                                        dur="4s" 
+                                        repeatCount="indefinite"/>
+                            </stop>
+                        </linearGradient>
 
-                <!-- 星點效果濾鏡 -->
-                <filter id="starGlow">
-                    <feGaussianBlur stdDeviation="1.5" />
-                </filter>
+                        <!-- 星點效果濾鏡 -->
+                        <filter id="starGlow">
+                            <feGaussianBlur stdDeviation="1.5" />
+                        </filter>
 
-                <!-- 定義十字星芒 -->
-                <path id="starCross" d="M -5,0 H 5 M 0,-5 V 5" />
-            </defs>
+                        <!-- 定義十字星芒 -->
+                        <path id="starCross" d="M -5,0 H 5 M 0,-5 V 5" />
+                    </defs>
 
-            <!-- 背景層 -->
-            <g class="background-layer">
-                <rect width="800" height="300" fill="url(#cosmos-bg)" />
-                <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
-            </g>
-
-            <!-- 星點群 -->
-            <g filter="url(#starGlow)" opacity="0.8">
-                <!-- 小星點 - 右上方 -->
-                <g fill="#FFF">
-                    <circle cx="450" cy="40" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="520" cy="60" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="580" cy="35" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="650" cy="55" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="720" cy="45" r="1.2">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-
-                <!-- 中等星點 - 右上區域 -->
-                <g fill="#FFB800">
-                    <circle cx="480" cy="80" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="550" cy="50" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="620" cy="70" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="690" cy="40" r="2">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-
-                <!-- 大星點 - 右上方最亮的部分 -->
-                <g fill="#FFF" class="large-stars">
-                    <g transform="translate(500,45)">
-                        <circle r="2.5">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
-                        </circle>
-                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
-                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
-                        </use>
+                    <!-- 背景層 -->
+                    <g class="background-layer">
+                        <rect width="800" height="300" fill="url(#cosmos-bg)" />
+                        <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
                     </g>
-                    <g transform="translate(600,30)">
-                        <circle r="2.5">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
-                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
-                        </use>
+
+                    <!-- 星點群 -->
+                    <g filter="url(#starGlow)" opacity="0.8">
+                        <!-- 小星點 - 右上方 -->
+                        <g fill="#FFF">
+                            <circle cx="450" cy="40" r="1.2">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="520" cy="60" r="1.2">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="580" cy="35" r="1.2">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="650" cy="55" r="1.2">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="720" cy="45" r="1.2">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
+                            </circle>
+                        </g>
+
+                        <!-- 中等星點 - 右上區域 -->
+                        <g fill="#FFB800">
+                            <circle cx="480" cy="80" r="2">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="550" cy="50" r="2">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="620" cy="70" r="2">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="690" cy="40" r="2">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
+                            </circle>
+                        </g>
+
+                        <!-- 大星點 - 右上方最亮的部分 -->
+                        <g fill="#FFF" class="large-stars">
+                            <g transform="translate(500,45)">
+                                <circle r="2.5">
+                                    <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+                                </circle>
+                                <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
+                                </use>
+                            </g>
+                            <g transform="translate(600,30)">
+                                <circle r="2.5">
+                                    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
+                                </use>
+                            </g>
+                            <g transform="translate(700,25)">
+                                <circle r="2.5">
+                                    <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/>
+                                </use>
+                            </g>
+                        </g>
+
+                        <!-- 藍色星點 -->
+                        <g fill="#00CCFF">
+                            <circle cx="530" cy="65" r="1.8">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="640" cy="45" r="1.8">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
+                            </circle>
+                        </g>
                     </g>
-                    <g transform="translate(700,25)">
-                        <circle r="2.5">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
-                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/>
-                        </use>
+
+                    <!-- 能量波浪 -->
+                    <path d="M 0,150 C 200,100 400,200 800,150" 
+                          stroke="url(#energyFlow)" 
+                          stroke-width="3" 
+                          fill="none">
+                        <animate attributeName="d" 
+                                 values="M 0,150 C 200,100 400,200 800,150;
+                                         M 0,150 C 200,200 400,100 800,150;
+                                         M 0,150 C 200,100 400,200 800,150" 
+                                 dur="10s" 
+                                 repeatCount="indefinite"/>
+                    </path>
+
+                    <path d="M 0,150 C 200,200 400,100 800,150" 
+                          stroke="url(#blueEnergy)" 
+                          stroke-width="2" 
+                          fill="none">
+                        <animate attributeName="d" 
+                                 values="M 0,150 C 200,200 400,100 800,150;
+                                         M 0,150 C 200,100 400,200 800,150;
+                                         M 0,150 C 200,200 400,100 800,150" 
+                                 dur="8s" 
+                                 repeatCount="indefinite"/>
+                    </path>
+
+                    <!-- Logo image -->
+                    <image 
+                        href="genki-removebg.png" 
+                        x="140" 
+                        y="90" 
+                        width="120" 
+                        height="120" 
+                        preserveAspectRatio="xMidYMid meet"
+                    />
+
+                    <!-- 文字區域 -->
+                    <g class="text-area" transform="translate(500,150)">
+                        <text class="title" x="0" y="-20">GENKI</text>
+                        <text class="subtitle" x="0" y="20">Energizing the World</text>
                     </g>
-                </g>
+                </svg>
+            </div>
 
-                <!-- 藍色星點 -->
-                <g fill="#00CCFF">
-                    <circle cx="530" cy="65" r="1.8">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="640" cy="45" r="1.8">
-                        <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
-                    </circle>
-                </g>
-            </g>
-
-            <!-- 能量波浪 -->
-            <path d="M 0,150 C 200,100 400,200 800,150" 
-                  stroke="url(#energyFlow)" 
-                  stroke-width="3" 
-                  fill="none">
-                <animate attributeName="d" 
-                         values="M 0,150 C 200,100 400,200 800,150;
-                                 M 0,150 C 200,200 400,100 800,150;
-                                 M 0,150 C 200,100 400,200 800,150" 
-                         dur="10s" 
-                         repeatCount="indefinite"/>
-            </path>
-
-            <path d="M 0,150 C 200,200 400,100 800,150" 
-                  stroke="url(#blueEnergy)" 
-                  stroke-width="2" 
-                  fill="none">
-                <animate attributeName="d" 
-                         values="M 0,150 C 200,200 400,100 800,150;
-                                 M 0,150 C 200,100 400,200 800,150;
-                                 M 0,150 C 200,200 400,100 800,150" 
-                         dur="8s" 
-                         repeatCount="indefinite"/>
-            </path>
-
-            <!-- Logo image -->
-            <image 
-                href="genki-removebg.png" 
-                x="140" 
-                y="90" 
-                width="120" 
-                height="120" 
-                preserveAspectRatio="xMidYMid meet"
-            />
-
-            <!-- 文字區域 -->
-            <g class="text-area" transform="translate(500,150)">
-                <text class="title" x="0" y="-20">GENKI</text>
-                <text class="subtitle" x="0" y="20">Energizing the World</text>
-            </g>
-        </svg>
+            <!-- 這裡可以添加更多內容 -->
+            
+        </div>
     </div>
 </body>
 </html>
