@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background-image: url('background.jpg');
+            background-image: url('background.jpg');  /* 背景圖 */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -69,11 +69,6 @@
             <div class="banner-container">
                 <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <!-- 背景圖案 -->
-                        <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
-                            <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
-                        </pattern>
-                        
                         <!-- 能量波浪漸層 -->
                         <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
@@ -113,12 +108,6 @@
                         <!-- 定義十字星芒 -->
                         <path id="starCross" d="M -5,0 H 5 M 0,-5 V 5" />
                     </defs>
-
-                    <!-- 背景層 -->
-                    <g class="background-layer">
-                        <rect width="800" height="300" fill="url(#cosmos-bg)" />
-                        <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
-                    </g>
 
                     <!-- 星點群 -->
                     <g filter="url(#starGlow)" opacity="0.8">
@@ -238,9 +227,6 @@
                     </g>
                 </svg>
             </div>
-
-            <!-- 這裡可以添加更多內容 -->
-            
         </div>
     </div>
 </body>
