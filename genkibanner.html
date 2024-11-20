@@ -47,14 +47,16 @@
                     </stop>
                 </linearGradient>
 
-                <!-- 星雲遮罩漸層 -->
+                <!-- 改進的星雲遮罩漸層 -->
                 <radialGradient id="nebulaGradient1">
-                    <stop offset="0%" stop-color="white" stop-opacity="0.3" />
+                    <stop offset="0%" stop-color="white" stop-opacity="0.7" />
+                    <stop offset="50%" stop-color="white" stop-opacity="0.3" />
                     <stop offset="100%" stop-color="white" stop-opacity="0" />
                 </radialGradient>
                 
                 <radialGradient id="nebulaGradient2">
-                    <stop offset="0%" stop-color="white" stop-opacity="0.2" />
+                    <stop offset="0%" stop-color="white" stop-opacity="0.6" />
+                    <stop offset="50%" stop-color="white" stop-opacity="0.2" />
                     <stop offset="100%" stop-color="white" stop-opacity="0" />
                 </radialGradient>
 
@@ -73,38 +75,51 @@
                 <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
             </g>
 
-            <!-- 星雲效果 -->
+            <!-- 改進的星雲效果 -->
             <g class="nebula-layer">
                 <mask id="nebulaMask">
-                    <circle cx="250" cy="150" r="120" fill="url(#nebulaGradient1)">
+                    <!-- 更大的左側星雲，更快的移動 -->
+                    <circle cx="250" cy="150" r="180">
                         <animate attributeName="cx" 
-                                values="250;270;250" 
-                                dur="15s" 
+                                values="250;300;250" 
+                                dur="10s" 
                                 repeatCount="indefinite" />
                         <animate attributeName="cy" 
-                                values="150;170;150" 
-                                dur="20s" 
+                                values="150;180;150" 
+                                dur="12s" 
+                                repeatCount="indefinite" />
+                        <animate attributeName="r" 
+                                values="180;190;180" 
+                                dur="8s" 
                                 repeatCount="indefinite" />
                     </circle>
-                    <circle cx="550" cy="150" r="150" fill="url(#nebulaGradient2)">
+                    <!-- 更大的右側星雲，更快的移動 -->
+                    <circle cx="550" cy="150" r="200">
                         <animate attributeName="cx" 
-                                values="550;530;550" 
-                                dur="18s" 
+                                values="550;500;550" 
+                                dur="11s" 
                                 repeatCount="indefinite" />
                         <animate attributeName="cy" 
-                                values="150;130;150" 
-                                dur="22s" 
+                                values="150;120;150" 
+                                dur="13s" 
+                                repeatCount="indefinite" />
+                        <animate attributeName="r" 
+                                values="200;210;200" 
+                                dur="9s" 
                                 repeatCount="indefinite" />
                     </circle>
                 </mask>
-                <rect width="800" height="300" fill="#436685" opacity="0.2" mask="url(#nebulaMask)">
+                <!-- 調整星雲顏色和不透明度 -->
+                <rect width="800" height="300" 
+                      fill="#6495ED" 
+                      opacity="0.5" 
+                      mask="url(#nebulaMask)">
                     <animate attributeName="opacity" 
-                            values="0.1;0.3;0.1" 
-                            dur="10s" 
+                            values="0.4;0.6;0.4" 
+                            dur="8s" 
                             repeatCount="indefinite"/>
                 </rect>
             </g>
-
             <!-- 星點群 -->
             <g filter="url(#starGlow)" opacity="0.8">
                 <!-- 小星點 - 右上方 -->
