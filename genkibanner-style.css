@@ -1,0 +1,29 @@
+.banner-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #0a0a15;
+    overflow: hidden;
+}
+
+.banner-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 文字樣式 */
+.text-area .title {
+    fill: #fff;
+    font-family: Arial;
+    font-size: 36px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.text-area .subtitle {
+    fill: #FFB800;
+    font-family: Arial;
+    font-size: 24px;
+    text-anchor: middle;
+}
