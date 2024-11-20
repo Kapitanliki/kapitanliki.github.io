@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <!-- 漸層定義 -->
+    <defs id="energyGradients">
+        <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
+                <animate attributeName="stop-color" 
+                        values="#FF8800;#FF6600;#FF8800" 
+                        dur="3s" 
+                        repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#FF4400;stop-opacity:0.8">
+                <animate attributeName="stop-color" 
+                        values="#FF4400;#FF6600;#FF4400" 
+                        dur="3s" 
+                        repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+
+        <linearGradient id="blueEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#0066FF;stop-opacity:0.6">
+                <animate attributeName="stop-color" 
+                        values="#0066FF;#00CCFF;#0066FF" 
+                        dur="4s" 
+                        repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:0.6">
+                <animate attributeName="stop-color" 
+                        values="#00CCFF;#0066FF;#00CCFF" 
+                        dur="4s" 
+                        repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+    </defs>
+
+    <!-- 波浪路徑 -->
+    <g id="energyWaves">
+        <path d="M 0,150 C 200,100 400,200 800,150" 
+              stroke="url(#energyFlow)" 
+              stroke-width="3" 
+              fill="none">
+            <animate attributeName="d" 
+                     values="M 0,150 C 200,100 400,200 800,150;
+                             M 0,150 C 200,200 400,100 800,150;
+                             M 0,150 C 200,100 400,200 800,150" 
+                     dur="10s" 
+                     repeatCount="indefinite"/>
+        </path>
+
+        <path d="M 0,150 C 200,200 400,100 800,150" 
+              stroke="url(#blueEnergy)" 
+              stroke-width="2" 
+              fill="none">
+            <animate attributeName="d" 
+                     values="M 0,150 C 200,200 400,100 800,150;
+                             M 0,150 C 200,100 400,200 800,150;
+                             M 0,150 C 200,200 400,100 800,150" 
+                     dur="8s" 
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+</svg>
