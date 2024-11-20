@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENKI Banner</title>
+    <link rel="stylesheet" href="genkibanner-style.css">
+    <link rel="stylesheet" href="genkibanner-animation.css">
+</head>
+<body>
+    <div class="banner-container">
+        <svg class="banner-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- 背景圖案 -->
+                <pattern id="cosmos-bg" patternUnits="userSpaceOnUse" width="800" height="300">
+                    <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
+                </pattern>
+                
+                <!-- 星雲遮罩漸層 -->
+                <radialGradient id="nebulaGradient1">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="white" stop-opacity="0" />
+                </radialGradient>
+                
+                <radialGradient id="nebulaGradient2">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="white" stop-opacity="0" />
+                </radialGradient>
+
+                <!-- 能量流動漸層 -->
+                <use href="genki-waves.svg#energyGradients"/>
+                
+                <!-- 星點效果濾鏡 -->
+                <filter id="starGlow">
+                    <feGaussianBlur stdDeviation="1.5" />
+                </filter>
+                
+                <!-- 星雲遮罩 -->
+                <mask id="nebulaMask">
+                    <use href="genki-nebula.svg#nebulaMask"/>
+                </mask>
+            </defs>
+
+            <!-- 背景層 -->
+            <g class="background-layer">
+                <rect width="800" height="300" fill="url(#cosmos-bg)" />
+                <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
+                <rect class="nebula-effect" width="800" height="300" 
+                    fill="#436685" 
+                    opacity="0.2" 
+                    mask="url(#nebulaMask)"/>
+            </g>
+
+            <!-- 星點群 -->
+            <use href="genki-stars.svg#starGroup"/>
+
+            <!-- 能量波浪 -->
+            <use href="genki-waves.svg#energyWaves"/>
+
+            <!-- Logo區域 -->
+            <g class="logo-area" transform="translate(200,150) scale(0.5)"></g>
+
+            <!-- 文字區域 -->
+            <g class="text-area" transform="translate(500,150)">
+                <text class="title" x="0" y="-20">GENKI</text>
+                <text class="subtitle" x="0" y="20">Energizing the World</text>
+            </g>
+        </svg>
+    </div>
+    <script src="genkibanner-effects.js"></script>
+</body>
+</html>
