@@ -16,7 +16,7 @@
                     <image href="cosmos1.jpg" width="800" height="300" preserveAspectRatio="xMidYMid slice"/>
                 </pattern>
                 
-                <!-- 漸層定義必須在主文件中 -->
+                <!-- 能量波浪漸層 -->
                 <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#FF8800;stop-opacity:0.8">
                         <animate attributeName="stop-color" 
@@ -62,40 +62,47 @@
                 <filter id="starGlow">
                     <feGaussianBlur stdDeviation="1.5" />
                 </filter>
+
+                <!-- 定義十字星芒 -->
+                <path id="starCross" d="M -5,0 H 5 M 0,-5 V 5" />
             </defs>
 
             <!-- 背景層 -->
             <g class="background-layer">
                 <rect width="800" height="300" fill="url(#cosmos-bg)" />
                 <rect width="800" height="300" fill="#0a0a15" opacity="0.3"/>
-                
-                <!-- 星雲效果 - 直接嵌入而不是使用外部引用 -->
-                <g class="nebula-effect" mask="url(#nebulaMask)">
-                    <rect width="800" height="300" fill="#436685" opacity="0.2"/>
-                    <!-- 星雲遮罩 -->
-                    <mask id="nebulaMask">
-                        <circle cx="250" cy="150" r="120" fill="url(#nebulaGradient1)">
-                            <animate attributeName="cx" 
-                                     values="250;270;250" 
-                                     dur="15s" 
-                                     repeatCount="indefinite" />
-                            <animate attributeName="cy" 
-                                     values="150;170;150" 
-                                     dur="20s" 
-                                     repeatCount="indefinite" />
-                        </circle>
-                        <circle cx="550" cy="150" r="150" fill="url(#nebulaGradient2)">
-                            <animate attributeName="cx" 
-                                     values="550;530;550" 
-                                     dur="18s" 
-                                     repeatCount="indefinite" />
-                            <animate attributeName="cy" 
-                                     values="150;130;150" 
-                                     dur="22s" 
-                                     repeatCount="indefinite" />
-                        </circle>
-                    </mask>
-                </g>
+            </g>
+
+            <!-- 星雲效果 -->
+            <g class="nebula-layer">
+                <mask id="nebulaMask">
+                    <circle cx="250" cy="150" r="120" fill="url(#nebulaGradient1)">
+                        <animate attributeName="cx" 
+                                values="250;270;250" 
+                                dur="15s" 
+                                repeatCount="indefinite" />
+                        <animate attributeName="cy" 
+                                values="150;170;150" 
+                                dur="20s" 
+                                repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="550" cy="150" r="150" fill="url(#nebulaGradient2)">
+                        <animate attributeName="cx" 
+                                values="550;530;550" 
+                                dur="18s" 
+                                repeatCount="indefinite" />
+                        <animate attributeName="cy" 
+                                values="150;130;150" 
+                                dur="22s" 
+                                repeatCount="indefinite" />
+                    </circle>
+                </mask>
+                <rect width="800" height="300" fill="#436685" opacity="0.2" mask="url(#nebulaMask)">
+                    <animate attributeName="opacity" 
+                            values="0.1;0.3;0.1" 
+                            dur="10s" 
+                            repeatCount="indefinite"/>
+                </rect>
             </g>
 
             <!-- 星點群 -->
@@ -118,7 +125,60 @@
                         <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
                     </circle>
                 </g>
-                <!-- 其他星點... -->
+
+                <!-- 中等星點 - 右上區域 -->
+                <g fill="#FFB800">
+                    <circle cx="480" cy="80" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="550" cy="50" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="620" cy="70" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="690" cy="40" r="2">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+
+                <!-- 大星點 - 右上方最亮的部分 -->
+                <g fill="#FFF" class="large-stars">
+                    <g transform="translate(500,45)">
+                        <circle r="2.5">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+                        </circle>
+                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
+                        </use>
+                    </g>
+                    <g transform="translate(600,30)">
+                        <circle r="2.5">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
+                        </use>
+                    </g>
+                    <g transform="translate(700,25)">
+                        <circle r="2.5">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <use href="#starCross" stroke="#FFF" stroke-width="0.5" opacity="0.7">
+                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/>
+                        </use>
+                    </g>
+                </g>
+
+                <!-- 藍色星點 -->
+                <g fill="#00CCFF">
+                    <circle cx="530" cy="65" r="1.8">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="640" cy="45" r="1.8">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
             </g>
 
             <!-- 能量波浪 -->
@@ -156,6 +216,5 @@
             </g>
         </svg>
     </div>
-    <script src="genkibanner-effects.js"></script>
 </body>
 </html>
