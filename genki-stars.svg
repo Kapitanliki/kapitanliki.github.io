@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <g id="starGroup" filter="url(#starGlow)" opacity="0.8">
+        <!-- 小星點 - 右上方 -->
+        <g fill="#FFF">
+            <circle cx="450" cy="40" r="1.2">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="520" cy="60" r="1.2">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="580" cy="35" r="1.2">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="650" cy="55" r="1.2">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="720" cy="45" r="1.2">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+
+        <!-- 中等星點 - 右上區域 -->
+        <g fill="#FFB800">
+            <circle cx="480" cy="80" r="2">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="550" cy="50" r="2">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="620" cy="70" r="2">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="690" cy="40" r="2">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="3.6s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+
+        <!-- 大星點 - 右上方最亮的部分 -->
+        <g fill="#FFF">
+            <circle cx="500" cy="45" r="2.5">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="600" cy="30" r="2.5">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="700" cy="25" r="2.5">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="5.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+
+        <!-- 藍色星點 -->
+        <g fill="#00CCFF">
+            <circle cx="530" cy="65" r="1.8">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="640" cy="45" r="1.8">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="4.1s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>
