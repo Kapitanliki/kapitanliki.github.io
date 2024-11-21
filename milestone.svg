@@ -1,0 +1,85 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="1200" height="800" fill="#ffffff"/>
+    
+    <!-- 標題 -->
+    <text x="600" y="50" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle">GENKI Token Development Milestones</text>
+    
+    <!-- 階梯式背景 -->
+    <path d="M50,700 L300,700 L300,550 L600,550 L600,400 L900,400 L900,250 L1150,250" 
+          fill="none" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <!-- 垂直參考線 -->
+    <line x1="300" y1="700" x2="300" y2="250" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="600" y1="700" x2="600" y2="250" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="900" y1="700" x2="900" y2="250" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+    
+    <!-- Y軸標籤 -->
+    <text x="30" y="690" font-family="Arial" font-size="14" text-anchor="end">100B</text>
+    <text x="30" y="540" font-family="Arial" font-size="14" text-anchor="end">300B</text>
+    <text x="30" y="390" font-family="Arial" font-size="14" text-anchor="end">500B</text>
+    <text x="30" y="240" font-family="Arial" font-size="14" text-anchor="end">700B</text>
+    
+    <!-- X軸標籤 -->
+    <text x="150" y="730" font-family="Arial" font-size="14" text-anchor="middle">Q1 2025</text>
+    <text x="450" y="730" font-family="Arial" font-size="14" text-anchor="middle">Q2 2025</text>
+    <text x="750" y="730" font-family="Arial" font-size="14" text-anchor="middle">Q3 2025</text>
+    <text x="1050" y="730" font-family="Arial" font-size="14" text-anchor="middle">Q4 2025</text>
+    
+    <!-- Phase方塊 (使用更淡的漸層色彩) -->
+    <!-- Phase 1 -->
+    <g transform="translate(80,570)">
+        <rect width="200" height="120" fill="url(#lightBlueGradient)" stroke="#3b82f6" stroke-width="2" rx="5">
+            <animate attributeName="height" from="0" to="120" dur="1s" fill="freeze"/>
+        </rect>
+        <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" fill="#1e40af" text-anchor="middle">Phase 1: Foundation</text>
+        <text x="100" y="50" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Contract Deployment & Audit</text>
+        <text x="100" y="70" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Initial LP Lock (4,888 USDT)</text>
+        <text x="100" y="90" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Dev Fee 2%</text>
+        <text x="100" y="110" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Website Launch</text>
+    </g>
+    
+    <!-- Phase 2 -->
+    <g transform="translate(380,420)">
+        <rect width="200" height="120" fill="url(#lightBlueGradient)" stroke="#3b82f6" stroke-width="2" rx="5">
+            <animate attributeName="height" from="0" to="120" dur="1s" fill="freeze"/>
+        </rect>
+        <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" fill="#1e40af" text-anchor="middle">Phase 2: Distribution</text>
+        <text x="100" y="50" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• First Airdrop 8.8M/wallet</text>
+        <text x="100" y="70" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Circulation < 100B</text>
+        <text x="100" y="90" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Basic Features Activation</text>
+        <text x="100" y="110" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Community Building</text>
+    </g>
+    
+    <!-- Phase 3 -->
+    <g transform="translate(680,270)">
+        <rect width="200" height="120" fill="url(#lightBlueGradient)" stroke="#3b82f6" stroke-width="2" rx="5">
+            <animate attributeName="height" from="0" to="120" dur="1s" fill="freeze"/>
+        </rect>
+        <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" fill="#1e40af" text-anchor="middle">Phase 3: Growth</text>
+        <text x="100" y="50" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Second Drop 4.8M/wallet</text>
+        <text x="100" y="70" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Circulation 100B-300B</text>
+        <text x="100" y="90" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Dev Fee 1%</text>
+        <text x="100" y="110" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• SUPER GACHA Integration</text>
+    </g>
+    
+    <!-- Phase 4 -->
+    <g transform="translate(980,120)">
+        <rect width="200" height="120" fill="url(#lightBlueGradient)" stroke="#3b82f6" stroke-width="2" rx="5">
+            <animate attributeName="height" from="0" to="120" dur="1s" fill="freeze"/>
+        </rect>
+        <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" fill="#1e40af" text-anchor="middle">Phase 4: DAO Ready</text>
+        <text x="100" y="50" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Third Drop 2.8M/wallet</text>
+        <text x="100" y="70" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Circulation 300B-500B</text>
+        <text x="100" y="90" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• Dev Fee 0.5%</text>
+        <text x="100" y="110" font-family="Arial" font-size="12" fill="#1e40af" text-anchor="middle">• DAO Governance Launch</text>
+    </g>
+    
+    <!-- 漸層定義 -->
+    <defs>
+        <linearGradient id="lightBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+</svg>
